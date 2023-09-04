@@ -10,9 +10,7 @@ app.use(express.json())
 dotenv.config()
 const whitelist = [process.env.FRONTEND_URL]
 
-app.use(cors({
-  origin: ['*']
-}))
+app.use(cors())
 // 
 
 pool.getConnection()
