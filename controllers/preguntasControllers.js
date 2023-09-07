@@ -7,7 +7,7 @@ const registrarPreguntaYRespuestas = async (req, res) => {
       const { titulo, categoria,tipo, respuestas } = req.body;
   
       // Registrar la pregunta
-      const pregunta = await registrarPregunta(titulo, categoria);
+      const pregunta = await registrarPregunta(titulo,tipo ,categoria);
   
       // Registrar las respuestas asociadas a la pregunta
       const respuestasRegistradas = await Promise.all(

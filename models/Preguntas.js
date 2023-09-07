@@ -3,7 +3,7 @@ const registrarPregunta = async (titulo,tipo, categoria) => {
   try {
     const [result] = await pool.query(
       'INSERT INTO preguntas (titulo, categoria,tipo) VALUES (?, ?,?)',
-      [titulo, categoria,tipo]
+      [titulo, categoria,parseInt(tipo)]
     );
 
     const preguntaId = result.insertId;
