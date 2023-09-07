@@ -20,5 +20,13 @@ const obtenerTodasLasPreguntas = async () => {
     throw error;
   }
 };
+const editarPreguntaById = async (id,titulo,categoria)=>{
+  try {
+    await pool.query(`UPDATE preguntas SET titulo = ?,categoria = ? WHERE id = ?`,[titulo,categoria,id])
+    return ({msg: "Pregunta Actualizada correctamente"})
+  } catch (error) {
+    return ({msg: "Error: " + error.message})
+  }
+}
 
-export { registrarPregunta,obtenerTodasLasPreguntas };
+export { registrarPregunta,obtenerTodasLasPreguntas,editarPreguntaById };

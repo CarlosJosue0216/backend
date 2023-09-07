@@ -21,5 +21,21 @@ const registrarRespuesta = async (preguntaId, contenido) => {
       throw error;
     }
   };
-  
-  export { registrarRespuesta,obtenerTodasLasRespuestasOrdenadas };
+  const editarRespuestaById = async (id,contenido)=>{
+    try {
+      await pool.query(`UPDATE respuestas SET contenido = ? WHERE id = ?`,[contenido,id])
+      return ({msg: "Respuesta Actualizada correctamente"})
+    } catch (error) {
+      return ({msg: "Error: " + error.message})
+    }
+  }
+const getRespuestaById = async (id)=>{
+  try {
+    const result = await pool.query("SELECT * FROM respuestas WHERE id = ?",[id])
+    return result
+  } catch (error) {
+    throw error;
+
+  }
+}
+  export { registrarRespuesta,obtenerTodasLasRespuestasOrdenadas,editarRespuestaById,getRespuestaById };

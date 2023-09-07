@@ -1,6 +1,6 @@
 import pool from "../config/db.js";
-import { obtenerTodasLasPreguntas, registrarPregunta } from "../models/Preguntas.js";
-import { obtenerTodasLasRespuestasOrdenadas, registrarRespuesta } from "../models/Repuestas.js";
+import { obtenerTodasLasPreguntas, registrarPregunta,editarPreguntaById } from "../models/Preguntas.js";
+import { editarRespuestaById, getRespuestaById, obtenerTodasLasRespuestasOrdenadas, registrarRespuesta } from "../models/Repuestas.js";
 
 const registrarPreguntaYRespuestas = async (req, res) => {
     try {
@@ -44,5 +44,36 @@ const registrarPreguntaYRespuestas = async (req, res) => {
       res.status(500).json({ message: "Error al obtener las preguntas y respuestas ordenadas." });
     }
   };
-  export { registrarPreguntaYRespuestas,obtenerPreguntasYRespuestasOrdenadas };
+  const editarPregunta = async (req, res) => {
+    const {id} = req.params
+    const {titulo,categoria} = req.body
+    try {
+      const result = await editarPreguntaById(id,titulo,categoria)
+
+      return res.status(200).json(result)
+    } catch (error) {
+      console.log(error)
+    }
+  }
+  const editarRespuesta = async (req, res) => {
+    const {id} = req.params
+    const {contenido} = req.body
+    try {
+      const result = await editarRespuestaById(id, contenido)
+      return res.status(200).json(result)
+
+    } catch (error) {
+      console.log(error)
+    }
+  }
+  const obtenerRespuestaUnica = async (req, res) => {
+    const {id} = req.params
+    try {
+      const result = await getRespuestaById(id)
+      return res.status(200).json(result[0])
+    } catch (error) {
+      console.log(error)
+    }
+  }
+  export { registrarPreguntaYRespuestas,obtenerPreguntasYRespuestasOrdenadas,editarPregunta,editarRespuesta,obtenerRespuestaUnica };
   
