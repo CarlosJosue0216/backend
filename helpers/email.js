@@ -14,12 +14,12 @@ export const emailRegistro = async (data) => {
   });
   //informacion del email
   const info = await transport.sendMail({
-    from: `Proyecto Conacyt <${process.env.EMAIL_USER}> `,
+    from: `Diagnóstico de Mujeres Dedicadas a la Ciencia y la Tecnología 2023 <${process.env.EMAIL_USER}> `,
     to: email,
     subject: "Comprueba tu cuenta",
     text: "Comprueba tu cuenta con conacyt",
     html: `
-            <p>Hola ${nombre} comprueba tu cuenta para acceder a la encuesta en conacyt</p>
+            <p>Hola ${nombre} comprueba tu cuenta para acceder al cuestionario para el Diagnóstico de Mujeres Dedicadas a la Ciencia y la Tecnología 2023</p>
             <p>Tu cuenta ya esta casi lista, solo debes comprobarla en el siguiente enlace:</p>
             <a href="${process.env.FRONTEND_URL}/confirmar/${token}" >Comprobar cuenta</a>
             <p>Si tu no creaste esta cuenta,ignora este correo</p>
@@ -41,7 +41,7 @@ export const emailRecuperarPass = async (data) => {
   });
   //informacion del email
   const info = await transport.sendMail({
-    from: `Proyecto Conacyt <${process.env.EMAIL_USER}> `,
+    from: `Diagnóstico de Mujeres Dedicadas a la Ciencia y la Tecnología 2023 <${process.env.EMAIL_USER}> `,
     to: email,
     subject: "Reestablece tu contraseña",
     text: "Reestablece tu contraseña",
@@ -66,7 +66,7 @@ export const emailForos = async (data) => {
   });
   //informacion del email
   const info = await transport.sendMail({
-    from: `Proyecto Conacyt <${process.env.EMAIL_USER}> `,
+    from: `Diagnóstico de Mujeres Dedicadas a la Ciencia y la Tecnología 2023 <${process.env.EMAIL_USER}> `,
     to: email,
     subject: "Informacion sobre el foro",
     text: "Informacion sobre el foro",

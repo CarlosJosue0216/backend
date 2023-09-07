@@ -106,7 +106,7 @@
             ]
         },
         {
-            questionText: '¿A qué área del conocimiento, definidas por el CONACYT, está enfocada?',
+            questionText: '¿A qué área del conocimiento, definidas por el CONAHCYT, está enfocada?',
             choices: [
                 'Área I: Físico Matemáticas y Ciencias de la Tierra',
                 'Área II: Biología y Química',
@@ -293,7 +293,7 @@
         {
             questionText: 'Si ha obtenido financiamiento para proyectos de investigación, indique la fuente de financiamiento principal',
             choices: [
-                'CONACYT',
+                'CONAHCYT',
                 'Fondo Institucional de Fomento Regional para el Desarrollo Científico, Tecnológico y de Innovación (FORDECYT)',
                 'Fondo de Apoyo a la Investigación Científica y Tecnológica (FONCICYT)',
                 'Consejo Veracruzano de Ciencia y Tecnología (COVEICYDET)',
