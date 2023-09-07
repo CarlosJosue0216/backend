@@ -4,7 +4,7 @@ import { editarRespuestaById, getRespuestaById, obtenerTodasLasRespuestasOrdenad
 
 const registrarPreguntaYRespuestas = async (req, res) => {
     try {
-      const { titulo, categoria, respuestas } = req.body;
+      const { titulo, categoria,tipo, respuestas } = req.body;
   
       // Registrar la pregunta
       const pregunta = await registrarPregunta(titulo, categoria);

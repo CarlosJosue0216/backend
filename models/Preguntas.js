@@ -1,13 +1,13 @@
 import pool from "../config/db.js";
-const registrarPregunta = async (titulo, categoria) => {
+const registrarPregunta = async (titulo,tipo, categoria) => {
   try {
     const [result] = await pool.query(
-      'INSERT INTO preguntas (titulo, categoria) VALUES (?, ?)',
-      [titulo, categoria]
+      'INSERT INTO preguntas (titulo, categoria,tipo) VALUES (?, ?,?)',
+      [titulo, categoria,tipo]
     );
 
     const preguntaId = result.insertId;
-    return { id: preguntaId, titulo, categoria };
+    return { id: preguntaId, titulo, categoria, tipo };
   } catch (error) {
     throw error;
   }
