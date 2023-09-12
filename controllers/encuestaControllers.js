@@ -44,7 +44,8 @@ const obtenerEncuestaOrdenada = async (req, res) =>{
     try {
         const query = "SELECT p.titulo AS pregunta,r.contenido AS respuesta,COUNT(DISTINCT e.usuario_id) AS total_personas,COUNT(DISTINCT e.usuario_id) AS personas_que_respondieron FROM  encuesta e JOIN preguntas p ON e.pregunta_id = p.id JOIN respuestas r ON e.id_respuesta = r.id GROUP BY p.titulo, r.contenido"
         const data = await pool.query(query)
-        res.json(data[0])
+        console.log(data)
+        res.json(data)
     } catch (error) {
         res.json({
             msg:error.message
