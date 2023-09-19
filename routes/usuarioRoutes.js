@@ -1,5 +1,5 @@
 import express from "express";
-import { registrar,autenticar,confirmar,recuperarPassword,comprobarToken,nuevoPassword,perfil,validarForo } from "../controllers/usuarioControllers.js";
+import { registrar,autenticar,confirmar,recuperarPassword,comprobarToken,nuevoPassword,perfil,validarForo, omitirForo } from "../controllers/usuarioControllers.js";
 import checkAuth from "../middleware/checkAuth.js";
 
 const router = express.Router()
@@ -10,6 +10,7 @@ router.get('/confirmar/:token',confirmar)
 router.post('/recuperar-password',recuperarPassword)
 router.get('/recuperar-password/:token',comprobarToken)
 router.post('/foros',validarForo)
+router.post('/omitir',omitirForo)
 router.post('/recuperar-password/:token',nuevoPassword)
 router.get('/perfil',checkAuth,perfil)
 export default router

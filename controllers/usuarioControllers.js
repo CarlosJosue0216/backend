@@ -105,6 +105,24 @@ export async function confirmar(req, res) {
       res.status(500).json({ msg: 'Error en el servidor' });
     }
   }
+  export async function omitirForo(req, res) {
+    const { email } = req.body;
+
+    try {
+      const user = await User.findByEmail(email);
+      if (!user) {
+        return res.status(403).json({ msg: 'Usuario no válido' });
+      }
+  
+      const query = `UPDATE usuarios SET foro = 2 WHERE email = '${email}'`;
+  
+      await pool.query(query);
+      res.json({ msg: 'Omicion realizada' });
+    } catch (error) {
+      console.log(error);
+      res.status(500).json({ msg: 'Error en el servidor' });
+    }
+  }
 
 export async function recuperarPassword(req, res) {
   const { email } = req.body;
