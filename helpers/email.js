@@ -77,7 +77,7 @@ export const emailForos = async (data) => {
           <p>Instrucciones</p>
 
           
-          <p>Si tu no solicitaste este email,ignora este correo</p>
+          <p>Si tu no solicitaste participar en este evento,ignora este correo</p>
       `
   })
 
