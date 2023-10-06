@@ -15,7 +15,7 @@ const registrarRespuesta = async (preguntaId, contenido) => {
   };
   const obtenerTodasLasRespuestasOrdenadas = async () => {
     try {
-      const [rows] = await pool.query('SELECT * FROM respuestas ORDER BY pregunta_id, id');
+      const [rows] = await pool.query('SELECT * FROM respuestas ORDER BY pregunta_id,contenido');
       return rows;
     } catch (error) {
       throw error;
