@@ -94,7 +94,7 @@ export async function confirmar(req, res) {
         return res.status(403).json({ msg: 'Usuario no válido' });
       }
   
-      const query = `UPDATE usuarios SET foro = 1 WHERE email = '${email}'`;
+      const query = `UPDATE usuarios SET foro = '${foro}' WHERE email = '${email}'`;
   
       await pool.query(query);
     emailForos({ email, nombre,foro, token });
