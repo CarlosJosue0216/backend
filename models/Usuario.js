@@ -28,6 +28,13 @@ const User = {
 
     return result.length ? result[0] : null;
   },
+  async findUsers() {
+    const [result] = await pool.query(
+      'SELECT nombre,email,foro FROM usuarios '
+    );
+
+    return result;
+  },
   async findUserById(userId) {
     const [rows] = await pool.query('SELECT id, nombre, email,foro,rol FROM usuarios WHERE id = ?', [userId]);
     return rows.length ? rows[0] : null;

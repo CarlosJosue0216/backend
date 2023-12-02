@@ -185,7 +185,16 @@ export async function nuevoPassword(req, res) {
     res.status(500).json({ msg: 'Error en el servidor' });
   }
 }
-
+export async function usuariosTotal(req, res) {
+  
+  try {
+    const user = await User.findUsers();
+    return res.json(user)
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ msg: error});
+  }
+}
 export async function perfil(req, res) {
   const { usuario } = req;
   return res.json(usuario);
