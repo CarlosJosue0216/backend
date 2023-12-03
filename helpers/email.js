@@ -73,8 +73,13 @@ export const emailForos = async (data) => {
     html: `
           <p>Hola ${nombre} has solicitado informacion para asistir al foro ${foro} </p>
           <p>Foro de ${foro}</p>
-          <p>Direccion:</p>
-          <p>Instrucciones</p>
+          <p>Te informamos que el foro de expresión ciudadana en la sede que seleccionaste sera el dia 01 de diciembre en las instalaciones del Instituto Tecnológico de Orizaba ubicado en: Avenida Oriente 9 No. 852.
+          Col. Emiliano Zapata.</p>
+          <p>A partir de las 10:00 am podras realizar tu registro en  el modulo que encontraras en la entrada del auditorio. El evento iniciara a las 10:30 am.
+
+          Recuerda que tu participacion es importante.
+          
+          “Ciencia, tecnología e  innovacion con perspectiva de genero”</p>
 
           
           <p>Si tu no solicitaste participar en este evento,ignora este correo</p>
