@@ -30,7 +30,7 @@ const User = {
   },
   async findUsers() {
     const [result] = await pool.query(
-      'SELECT nombre,email,foro FROM usuarios where foro <> "0" order by foro'
+      'SELECT nombre,email,foro FROM usuarios where foro <> "0" '
     );
 
     return result;
