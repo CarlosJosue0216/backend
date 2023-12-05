@@ -65,7 +65,32 @@ export const emailForos = async (data) => {
     }
   });
   //informacion del email
-  const info = await transport.sendMail({
+  if (foro.includes("Coatzacoalcos")) {
+    await transport.sendMail({
+      from: `Diagnóstico de Mujeres Dedicadas a la Ciencia y la Tecnología 2023 <${process.env.EMAIL_USER}> `,
+      to: email,
+      subject: "Informacion sobre el foro",
+      text: "Informacion sobre el foro",
+      html: `
+            <p>Hola ${nombre} has solicitado informacion para asistir al foro ${foro} </p>
+            <p>Foro de ${foro}</p>
+            <p>Estimada participante: </p>
+
+            <p>Te informamos que el foro de expresión ciudadana en la sede que seleccionaste será el día 06 de diciembre en las instalaciones del Centro de Convenciones Coatzacoalcos ubicado en: Avenida Abraham Zabludovsky 201, Transportistas, 96535 Coatzacoalcos, Ver.</p>
+            
+            <p>A partir de las 10:00 am podrás realizar tu registro en el modulo que encontraras en la entrada. El evento iniciara a las 10:30 am.</p>
+            
+            <p>Recuerda que tu participación es importante.</p>
+            
+            <p>“Ciencia, tecnología e innovación con perspectiva de género”</p>
+  
+            
+            <p>Si tu no solicitaste participar en este evento,ignora este correo</p>
+        `
+    })
+    return
+} else{
+  await transport.sendMail({
     from: `Diagnóstico de Mujeres Dedicadas a la Ciencia y la Tecnología 2023 <${process.env.EMAIL_USER}> `,
     to: email,
     subject: "Informacion sobre el foro",
@@ -73,17 +98,13 @@ export const emailForos = async (data) => {
     html: `
           <p>Hola ${nombre} has solicitado informacion para asistir al foro ${foro} </p>
           <p>Foro de ${foro}</p>
-          <p>Te informamos que el foro de expresión ciudadana en la sede que seleccionaste sera el dia 01 de diciembre en las instalaciones del Instituto Tecnológico de Orizaba ubicado en: Avenida Oriente 9 No. 852.
-          Col. Emiliano Zapata.</p>
-          <p>A partir de las 10:00 am podras realizar tu registro en  el modulo que encontraras en la entrada del auditorio. El evento iniciara a las 10:30 am.
-
-          Recuerda que tu participacion es importante.
-          
-          “Ciencia, tecnología e  innovacion con perspectiva de genero”</p>
+          <p>Te informamos informaremos sobre la localizacion del foro dias antes del evento.</p>
 
           
           <p>Si tu no solicitaste participar en este evento,ignora este correo</p>
       `
   })
+  return
+}
 
 }
