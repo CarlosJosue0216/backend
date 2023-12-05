@@ -1,5 +1,5 @@
 import express from "express";
-import { registrar,autenticar,confirmar,recuperarPassword,comprobarToken,nuevoPassword,perfil,validarForo, omitirForo,usuariosTotal } from "../controllers/usuarioControllers.js";
+import { registrar,autenticar,confirmar,recuperarPassword,comprobarToken,nuevoPassword,perfil,validarForo, omitirForo,usuariosTotal,usuariosPorEncuesta } from "../controllers/usuarioControllers.js";
 import checkAuth from "../middleware/checkAuth.js";
 
 const router = express.Router()
@@ -14,4 +14,5 @@ router.post('/omitir',omitirForo)
 router.post('/recuperar-password/:token',nuevoPassword)
 router.get('/perfil',checkAuth,perfil)
 router.get('/getUsuarios',usuariosTotal)
+router.get('/getByEncuesta',usuariosPorEncuesta)
 export default router

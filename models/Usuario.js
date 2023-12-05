@@ -43,6 +43,13 @@ const User = {
   async comparePassword(passwordForm, hashedPassword) {
     return await bcrypt.compare(passwordForm, hashedPassword);
   },
+  async findUsersEncuesta() {
+    const [result] = await pool.query(
+      'SELECT u.nombre, u.email FROM usuarios u INNER JOIN encuesta e ON u.id = e.usuario_id GROUP BY u.nombre, u.email'
+    );
+
+    return result;
+  },
 };
 
 export default User;

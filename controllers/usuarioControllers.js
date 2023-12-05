@@ -195,6 +195,16 @@ export async function usuariosTotal(req, res) {
     res.status(500).json({ msg: error});
   }
 }
+export async function usuariosPorEncuesta(req, res) {
+  
+  try {
+    const user = await User.findUsersEncuesta();
+    return res.json(user)
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ msg: error});
+  }
+}
 export async function perfil(req, res) {
   const { usuario } = req;
   return res.json(usuario);
